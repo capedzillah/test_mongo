@@ -3,19 +3,17 @@ import {
     Route,
     Switch,
 } from 'react-router-dom';
-import Login from './views/example/loginPage';
-import Registration from './views/example/registrationPage';
+import loginView from './views/example/loginView';
+import registrationView from './views/example/registrationView';
 
 require('../style/index.css');
 
 module.exports = (
-    <div className="container">
         <div className="container__content">
             <Switch>
-                <Route exact path="/" component={Login} />
-                <Route path="/registration" component={Registration}/>
-                <Route path="*" component={Login} />
+                <Route exact path="/login" component={loginView} />
+                <Route path="/registration" component={registrationView}/>
+                <Route path="*" component={loginView} />
             </Switch>
-        </div>
     </div>
 );

@@ -87,5 +87,12 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+.select-style {
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 0 auto 15px;
+  border-radius: 3px;
+  overflow: hidden;
+}
 
 

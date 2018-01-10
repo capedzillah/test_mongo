@@ -29,10 +29,6 @@ class loginView extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidMount() {
-        this.props.setAwesomeCode('Well done, and this is awesome !!');
-    }
-
     updateLogin(e) {
         this.setState({login: e.target.value})
     }
@@ -50,8 +46,9 @@ class loginView extends Component {
         axios.post('http://localhost:3000/login', body).then(response => {
             if (response.data === 'Login failed')
                 return;
-            this.props.login(response.data)
-        })
+            this.props.login(response.data);
+			this.props.history.push('/projects');
+		})
             .catch(error => {
                 console.log(error)
             })

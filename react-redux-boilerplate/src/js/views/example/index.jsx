@@ -21,7 +21,6 @@ class ExampleView extends Component {
   }
 
   componentDidMount() {
-    console.log (exampleActions)
     this.props.setAwesomeCode('Well done, and this is awesome !!');
   }
 

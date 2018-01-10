@@ -148,7 +148,7 @@ router.post('/login', async (ctx, next) => {
 				email: user.email
 			};
 			const token = jwt.sign(payload, jwtsecret); //здесь создается JWT
-			ctx.body = {user: user.displayName, token: 'JWT ' + token, userType: user.userType};
+			ctx.body = {user: user.displayName, token: 'JWT ' + token, userType: user.userType, id:user.id};
 		}
 	})(ctx, next);
 

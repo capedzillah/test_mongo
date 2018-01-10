@@ -5,8 +5,8 @@ const SET_EXAMPLE = 'workshop/example/SET_EXAMPLE';
 const LOGIN = 'workshop/example/LOGIN';
 
 export const constants = {
-    SET_EXAMPLE,
-    LOGIN
+	SET_EXAMPLE,
+	LOGIN,
 };
 
 // ------------------------------------
@@ -16,20 +16,22 @@ export const setAwesomeCode = createAction(SET_EXAMPLE, message => ({message}));
 export const login = createAction(LOGIN, userinfo => ({userinfo}));
 
 export const actions = {
-    setAwesomeCode,
-    login
+	setAwesomeCode,
+	login,
 };
 
 export const reducers = {
-    [SET_EXAMPLE]: (state, {payload}) =>
-        state.set('result', payload.message),
-    [LOGIN]:(state,{payload})=>
-        state.set('userinfo', payload)
+	[SET_EXAMPLE]: (state, {payload}) =>
+		state.set('result', payload.message),
+	[LOGIN]: (state, {payload}) => {
+		localStorage.setItem('userinfo', JSON.stringify(payload));
+		return state.set('userinfo', payload)
+	},
 };
 
 export const initialState = Map({
-    result: '',
-    userinfo: ''
+	result: '',
+	userinfo: ''
 });
 
 export default handleActions(reducers, initialState);
